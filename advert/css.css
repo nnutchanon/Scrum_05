@@ -1,0 +1,33 @@
+.ad-container {
+    width: 70%; /* กำหนดขนาดเป็น 70% ของความกว้างทั้งหมด */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .ad-slider {
+    display: flex;
+    width: 200%; /* ขยายความกว้างเพื่อให้มีที่เพียงพอในการเลื่อน */
+    animation: slide 15s infinite; /* 15 วินาที สำหรับแต่ละรอบ */
+  }
+  
+  .ad-slide {
+    flex: 1; /* ให้ความกว้างเท่ากับครึ่งหนึ่งของความกว้างทั้งหมด */
+  }
+  
+  @keyframes slide {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    20%, 80% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+  }
+  
