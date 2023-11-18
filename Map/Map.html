@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตำแหน่งร้าน</title>
+    <!-- เพิ่ม API key ของ Google Maps ที่ได้จาก Google Cloud Console -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap" async defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #FFE8F4; /* เปลี่ยนสีพื้นหลังเป็น #FFE8F4 */
+        }
+
+        h1, p {
+            text-align: center;
+        }
+
+        #map-container {
+            position: relative;
+            width: 80%; /* ปรับขนาดของ container */
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden; /* ซ่อนส่วนที่เกิน container */
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+
+        #map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient;
+            pointer-events: none; /* ไม่ให้ overlay กีบรับ input */
+        }
+    </style>
+    <script>
+        // ฟังก์ชั่นนี้จะถูกเรียกเมื่อโหลดแผนที่
+        function initMap() {
+            // ตำแหน่งของร้าน (ละติจูด, ลองจิจูด)
+            var myLatLng = {lat: 8.652559573087496, lng: 99.91694945766996};
+
+            // สร้างแผนที่
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatLng,
+                zoom: 15
+            });
+
+            // สร้างเครื่องหมายที่แสดงตำแหน่งของร้าน
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'ตำแหน่งร้าน'
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>ตำแหน่งร้าน</h1>
+    <p>ร้านของเราตั้งอยู่ที่ <strong>ที่อยู่ร้าน</strong></p>
+
+    <!-- สร้าง div สำหรับแผนที่ -->
+    <div id="map-container">
+        <div id="map"></div>
+        <!-- เพิ่ม overlay สีดำ -->
+        <div id="map-overlay"></div>
+    </div>
+</body>
+</html>
