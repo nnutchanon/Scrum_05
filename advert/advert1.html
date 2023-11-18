@@ -1,78 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-
-  .ad-container {
-    overflow: hidden;
-    position: relative;
-    width: 50%; /* กำหนดขนาดเป็น 70% ของความกว้างทั้งหมด */
-  }
-
-  .ad-slider {
-    display: flex;
-    width: 200%; /* ขยายความกว้างเพื่อให้มีที่เพียงพอในการเลื่อน */
-    animation: slide 15s infinite; /* 15 วินาที สำหรับแต่ละรอบ */
-  }
-
-  .ad-slide {
-    flex: 1; /* ให้ความกว้างเท่ากับครึ่งหนึ่งของความกว้างทั้งหมด */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .ad-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* ทำให้รูปภาพเต็มในพื้นที่ */
-  }
-
-  @keyframes slide {
-    0%, 100% {
-      transform: translateX(0);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
-    20%, 80% {
-      transform: translateX(-50%);
+
+    .ad-container {
+      overflow: hidden;
+      position: relative;
+      width: 50%;
     }
-    100% {
-      transform: translateX(-100%);
+
+    .ad-slider {
+      display: flex;
+      width: 200%;
+      animation: slide 10s infinite; /* 10 seconds for each cycle */
     }
-  }
-</style>
+
+    .ad-slide {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ad-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0%, 100% {
+        transform: translateX(0%);
+      }
+      25% {
+        transform: translateX(0%);
+      }
+      50% {
+        transform: translateX(-50%);
+      }
+      75% {
+        transform: translateX(-50%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="ad-container">
-  <div class="ad-slider">
-    <div class="ad-slide">
-      <img src="https://www.matichon.co.th/wp-content/uploads/2022/03/%E0%B9%81%E0%B8%A1%E0%B8%A7.jpg" alt="Ad 1">
-    </div>
-    <div class="ad-slide">
-      <img src="https://maomaocare.com/wp-content/uploads/2020/12/%E0%B8%88%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%94%E0%B9%88%E0%B8%99-04-1024x555.jpg" alt="Ad 2">
+  <div class="ad-container">
+    <div class="ad-slider">
+      <div class="ad-slide">
+        <img src="https://www.matichon.co.th/wp-content/uploads/2022/03/%E0%B9%81%E0%B8%A1%E0%B8%A7.jpg" alt="Ad 1">
+      </div>
+      <div class="ad-slide">
+        <img src="https://maomaocare.com/wp-content/uploads/2020/12/%E0%B8%88%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%94%E0%B9%88%E0%B8%99-04-1024x555.jpg" alt="Ad 2">
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  function rotateAds() {
-    var slider = document.querySelector('.ad-slider');
-    slider.style.animation = 'none';
-    void slider.offsetWidth; // Trigger reflow
-    slider.style.animation = null;
-  }
+  <script>
+    function rotateAds() {
+      var slider = document.querySelector('.ad-slider');
+      slider.style.animation = 'none';
+      void slider.offsetWidth; // Trigger reflow
+      slider.style.animation = null;
 
-  setInterval(rotateAds, 5000); // Refresh ads every 5 seconds
-</script>
+      // Reset to the initial state (first image)
+      slider.style.transform = 'translateX(0%)';
+    }
+
+    setInterval(rotateAds, 10000); // Refresh ads every 10 seconds
+  </script>
 
 </body>
+
 </html>
