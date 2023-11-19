@@ -7,7 +7,7 @@
   .ad-slider {
     display: flex;
     width: 200%; /* ขยายความกว้างเพื่อให้มีที่เพียงพอในการเลื่อน */
-    animation: slide 15s infinite; /* 15 วินาที สำหรับแต่ละรอบ */
+    animation: slide 5s infinite; /* 15 วินาที สำหรับแต่ละรอบ */
   }
   
   .ad-slide {
