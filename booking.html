@@ -72,7 +72,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="./index.html">
-                                <img src="img/logo.png" alt="">
+                                <img src="img/2.jpg" alt="">
                             </a>
                         </div>
                     </div>
@@ -112,41 +112,24 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="room-details-item">
-                        <img src="img/room/room-details.jpg" alt="">
-                        <div class="rd-text">
-                            <div class="rd-title">
-                                <h3>Sweet Room</h3>
-                                <div class="rd-price">
-                                    <span>From</span>
-                                    <h2>฿900<span>/night</span></h2>
-                                    <h3 style="font-size: small;"><span>*</span></h3>
-                                </div>
+                        <div id="room-image"></div>
+                        <div class="rd-price">
+                            <span>From</span>
+                            <h2 id="room-price">$250<span>/night</span></h2>
+                        </div>
+                        <div class="rd-feature-text">
+                            <h4 class="text-uppercase">Room facilities</h4>
+                            <!-- ... -->
+                            <div class="rd-feature">
+                                <span>Outdoor play area:</span>
+                                <span id="outdoor-play"></span>
                             </div>
-                            <div class="rd-feature-text">
-                                <h4 class="text-uppercase">Room facilities</h4>
-                                <div class="rd-feature">
-                                    <i class="icon_check"></i>
-                                    <span>Breakfast included</span>
-                                </div>
-                                <div class="rd-feature">
-                                    <i class="icon_check"></i>
-                                    <span>Free Wi-fi</span>
-                                </div>
-                                <div class="rd-feature">
-                                    <i class="icon_check"></i>
-                                    <span>Air conditioning</span>
-                                </div>
-                                <div class="rd-feature">
-                                    <i class="icon_check"></i>
-                                    <span>Room service</span>
-                                </div>
-                                <!-- Add more features as needed -->
-                            </div>
+                        </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
                                 elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
                                 commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem
-                                imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
-                        </div>
+                                imperdiet. Nunc ut sem vitae risus tristique posuere.
+                            </p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -206,7 +189,7 @@
                         <div class="ft-about">
                             <div class="logo">
                                 <a href="#">
-                                    <img src="img/footer-logo.png" alt="">
+                                    <img src="img/1.png" alt="">
                                 </a>
                             </div>
                             <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
@@ -278,70 +261,55 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
-    
-    <script>
-        $(document).ready(function () {
-            // Function to update the room details based on the selected room type
-            function updateRoomDetails() {
-                var roomType = $("#room-type").val();
-    
-                // Default values
-                var price = 0;
-                var maxGuests = 0;
-                var outdoorPlay = "";
-    
-                // Update values based on room type
-                switch (roomType) {
-                    case "Standard Room":
-                        price = 250;
-                        maxGuests = 1;
-                        outdoorPlay = "Yes";
-                        break;
-                    case "Supreme Room":
-                        price = 400;
-                        maxGuests = 3;
-                        outdoorPlay = "Yes";
-                        break;
-                    case "Deluxe Room":
-                        price = 550;
-                        maxGuests = 6;
-                        outdoorPlay = "Yes";
-                        break;
-                    case "Sweet Room":
-                        price = 900;
-                        maxGuests = 10;
-                        outdoorPlay = "No";
-                        break;
-                    // Add more cases if needed
-    
-                    // Default case
-                    default:
-                        price = 0;
-                        maxGuests = 0;
-                        outdoorPlay = "";
-                }
-    
-                // Update the displayed details
-                $("#room-price").text("$" + price + "/night");
-                $("#max-guests").text(maxGuests);
-                $("#outdoor-play").text(outdoorPlay);
+    <!-- หลังจากเรียกใช้ไลบรารี jQuery และ JavaScript อื่น ๆ แล้ว -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- เพิ่มส่วนนี้เข้าไป -->
+<script>
+    // เมื่อหน้าเว็บโหลดเสร็จ
+    $(document).ready(function() {
+        // เมื่อมีการเปลี่ยนแปลงในการเลือกประเภทห้อง
+        $("#room-type").change(function() {
+            // ดึงค่าที่เลือก
+            var selectedRoomType = $(this).val();
+
+            // นำค่าที่เลือกไปแสดงผล
+            if (selectedRoomType === "Standard Room") {
+                $("#room-image").html('<img src="img/room/standard-room.jpg" alt="Standard Room">');
+                $("#room-title").text("Standard Room");
+                $("#room-price").text("$250/night");
+                $("#outdoor-play").text("1 Cat, Outdoor play area included");
+            } else if (selectedRoomType === "Supreme Room") {
+                $("#room-image").html('<img src="img/room/supreme-room.jpg" alt="Supreme Room">');
+                $("#room-title").text("Supreme Room");
+                $("#room-price").text("$400/night");
+                $("#outdoor-play").text("3 Cats, Outdoor play area included");
+            } else if (selectedRoomType === "Deluxe Room") {
+                $("#room-image").html('<img src="img/room/deluxe-room.jpg" alt="Deluxe Room">');
+                $("#room-title").text("Deluxe Room");
+                $("#room-price").text("$550/night");
+                $("#outdoor-play").text("6 Cats, Outdoor play area included");
+            } else if (selectedRoomType === "Sweet Room") {
+                $("#room-image").html('<img src="img/room/sweet-room.jpg" alt="Sweet Room">');
+                $("#room-title").text("Sweet Room");
+                $("#room-price").text("$900/night");
+                $("#outdoor-play").text("10 Cats, No outdoor play area");
+            } else {
+                // หากไม่พบประเภทห้องที่ตรงกับที่กำหนด ให้เคลียร์ข้อมูล
+                $("#room-title").text("");
+                $("#room-price").text("");
+                $("#outdoor-play").text("");
             }
-    
-            // Attach the updateRoomDetails function to the change event of the room type select
-            $("#room-type").change(updateRoomDetails);
-    
-            // Call the function initially to set default values
-            updateRoomDetails();
         });
-    </script>
+    });
+</script>
+<!-- ต่อไปคือส่วนอื่น ๆ ของไฟล์ JavaScript ของคุณ -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
     
 </body>
 
