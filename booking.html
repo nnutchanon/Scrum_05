@@ -115,10 +115,11 @@
                         <img src="img/room/room-details.jpg" alt="">
                         <div class="rd-text">
                             <div class="rd-title">
-                                <h3>Premium Suite Room</h3>
+                                <h3>Sweet Room</h3>
                                 <div class="rd-price">
                                     <span>From</span>
-                                    <h2>$250<span>/night</span></h2>
+                                    <h2>฿900<span>/night</span></h2>
+                                    <h3 style="font-size: small;"><span>*</span></h3>
                                 </div>
                             </div>
                             <div class="rd-feature-text">
@@ -165,16 +166,25 @@
                             <div class="select-option">
                                 <label for="room-type">Room Type:</label>
                                 <select class="suit-select" id="room-type">
-                                    <option value="">Premium Suite Room</option>
-                                    <!-- Add more room types as needed -->
+                                    <option value="Standard Room">Standard Room</option>
+                                    <option value="Supreme Room">Supreme Room</option>
+                                    <option value="Deluxe Room">Deluxe Room</option>
+                                    <option value="Sweet Room">Sweet Room</option>
                                 </select>
                             </div>
                             <div class="select-option">
                                 <label for="guests">Guests:</label>
                                 <select class="suit-select" id="guests">
-                                    <option value="">1 Adult</option>
-                                    <option value="">2 Adults</option>
-                                    <option value="">3 Adults</option>
+                                    <option value="">1 Cat</option>
+                                    <option value="">2 Cats</option>
+                                    <option value="">3 Cats</option>
+                                    <option value="">4 Cats</option>
+                                    <option value="">5 Cats</option>
+                                    <option value="">6 Cats</option>
+                                    <option value="">7 Cats</option>
+                                    <option value="">8 Cats</option>
+                                    <option value="">9 Cats</option>
+                                    <option value="">10 Cats</option>
                                     <!-- Add more options as needed -->
                                 </select>
                             </div>
@@ -276,6 +286,63 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            // Function to update the room details based on the selected room type
+            function updateRoomDetails() {
+                var roomType = $("#room-type").val();
+    
+                // Default values
+                var price = 0;
+                var maxGuests = 0;
+                var outdoorPlay = "";
+    
+                // Update values based on room type
+                switch (roomType) {
+                    case "Standard Room":
+                        price = 250;
+                        maxGuests = 1;
+                        outdoorPlay = "Yes";
+                        break;
+                    case "Supreme Room":
+                        price = 400;
+                        maxGuests = 3;
+                        outdoorPlay = "Yes";
+                        break;
+                    case "Deluxe Room":
+                        price = 550;
+                        maxGuests = 6;
+                        outdoorPlay = "Yes";
+                        break;
+                    case "Sweet Room":
+                        price = 900;
+                        maxGuests = 10;
+                        outdoorPlay = "No";
+                        break;
+                    // Add more cases if needed
+    
+                    // Default case
+                    default:
+                        price = 0;
+                        maxGuests = 0;
+                        outdoorPlay = "";
+                }
+    
+                // Update the displayed details
+                $("#room-price").text("$" + price + "/night");
+                $("#max-guests").text(maxGuests);
+                $("#outdoor-play").text(outdoorPlay);
+            }
+    
+            // Attach the updateRoomDetails function to the change event of the room type select
+            $("#room-type").change(updateRoomDetails);
+    
+            // Call the function initially to set default values
+            updateRoomDetails();
+        });
+    </script>
+    
 </body>
 
 </html>
