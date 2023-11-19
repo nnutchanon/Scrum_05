@@ -45,6 +45,29 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: "Lora", serif;
 }
 <style>
+<style>
+
+  .logo {
+    text-align: center;
+    background-color: #your_color; /* ระบุสีที่คุณต้องการ */
+    display: inline-block; /* ทำให้สี่เหลี่ยมพอดีกับขนาดของรูปภาพ */
+    padding: 10px; /* ปรับขนาดของสี่เหลี่ยม */
+    border-radius: 10px; /* ทำให้มีมนเป็นสี่เหลี่ยม */
+  }
+
+  .logo img {
+    border-radius: 50%; /* ทำให้รูปเป็นวงกลม */
+    width: 50px; /* ปรับขนาดของรูปตามที่คุณต้องการ */
+    height: 50px;
+  }
+</style>
+
+<div class="logo">
+  <a href="./index.html">
+    <img src="img/2.jpg" alt="">
+  </a>
+</div>
+
   .hero-text h1 {
     font-weight: bold;
   }
