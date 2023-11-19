@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าเว็บโฆษณา</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            position: relative;
+            width: 100%;
+            height: 300px; /* ปรับความสูงตามที่เหมาะสม */
+            overflow: hidden;
+        }
+
+        #imageContainer {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #advertisement {
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #backButton,
+        #nextButton {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #fff;
+            background-color: #0056b3;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #backButton {
+            left: 20px;
+        }
+
+        #nextButton {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ข่าวสารและโฆษณา</h1>
+    </header>
+
+    <section>
+        <button id="backButton" onclick="scrollImages(-1)">กลับ</button>
+        <div id="imageContainer">
+            <img class="image" src="image1.jpg" alt="Image 1">
+            <img class="image" src="image2.jpg" alt="Image 2">
+            <img class="image" src="image3.jpg" alt="Image 3">
+            <!-- เพิ่มรูปภาพตามที่ต้องการ -->
+        </div>
+        <button id="nextButton" onclick="scrollImages(1)">ถัดไป</button>
+    </section>
+
+    <div id="advertisement">
+        <h2>โฆษณา</h2>
+        <p>สินค้าหรือบริการที่น่าสนใจ</p>
+        <p>รับส่วนลดพิเศษเมื่อสั่งซื้อวันนี้! <br> ใช้โค้ด: SPECIAL10</p>
+        <p>ลองสินค้าฟรี 7 วัน ไม่ต้องชำระค่าใช้จ่าย</p>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const imageContainer = document.getElementById('imageContainer');
+
+        function scrollImages(direction) {
+            const imageWidth = document.querySelector('.image').clientWidth;
+            currentIndex = (currentIndex + direction + imageContainer.children.length) % imageContainer.children.length;
+            imageContainer.style.transition = 'transform 0.5s ease-in-out';
+            imageContainer.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+        }
+    </script>
+</body>
+</html>
