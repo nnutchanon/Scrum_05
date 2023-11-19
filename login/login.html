@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
     <style>
         body {
             margin: 0;
@@ -21,18 +22,20 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
+            position: relative; /* Add this line to make the position:relative for absolute positioning */
         }
 
         .login-container img {
             width: 100px;
             border-radius: 50%;
-            margin-bottom: 20px;
+            margin-bottom: 10spx;
         }
 
         .login-container .login-text {
-            font-size: 18px;
+            font-family: 'Bebas Neue', sans-serif; /* Add this line to set the font */
+            font-size: 30px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 0%;
         }
 
         .login-container input {
@@ -43,12 +46,22 @@
         }
 
         .login-container button {
-            background-color: #4CAF50;
+            background-color: rgb(255, 0, 179);
             color: white;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+        }
+
+        /* Add the following CSS for the Sign Up link */
+        .signup-link {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
         }
     </style>
     <title>Login Page</title>
@@ -63,6 +76,8 @@
             <input type="password" name="password" placeholder="Password" required><br>
             <button type="submit">Login</button>
         </form>
+       
+        <a class="signup-link" href="file:///D:/HTML/Scrum_05/sing%20up/sing%20up.html">Sign Up</a>
     </div>
 </body>
 
