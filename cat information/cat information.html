@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบฟอร์มข้อมูลแมว</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('cat2.png'); /* Add the path to your image file */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 5px;
+        }
+
+        textarea {
+            height: 80px;
+        }
+
+        input[type="submit"] {
+            background-color: #ff00a2;
+            color: rgb(255, 0, 208), 0.136)55, 255, 255);
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>แบบฟอร์มข้อมูลแมว</h2>
+
+    <form action="/submit" method="post" enctype="multipart/form-data">
+        <label for="name">ชื่อแมว:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="breed">สายพันธุ์:</label>
+        <input type="text" id="breed" name="breed" required>
+
+        <label for="gender">เพศ:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">ผู้</option>
+            <option value="female">เมีย</option>
+        </select>
+
+        <label for="age">อายุ:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="vaccinated">การฉีดวัคซีนครบตามโปรแกรม: <input type="checkbox" id="vaccinated" name="vaccinated"></label>
+
+        <label for="spayed_neutered">การทำหมัน: <input type="checkbox" id="spayed_neutered" name="spayed_neutered"></label>
+
+        <label for="health">สุขภาพ:</label>
+        <textarea id="health" name="health"></textarea>
+
+        <label for="image">รูปภาพแมว:</label>
+        <input type="file" id="image" name="image" accept="image/*">
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>
