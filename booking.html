@@ -121,15 +121,25 @@
                             <h4 class="text-uppercase">Room facilities</h4>
                             <!-- ... -->
                             <div class="rd-feature">
-                                <span>Outdoor play area:</span>
+                                <i class="icon_check"></i>
+                                <span>Numbers of cat:</span>
+                                <span id="numbers-cat"></span>
+                            </div>
+                            <div class="rd-feature">
+                                <i class="icon_check"></i>
+                                <span>Outdoor plays:</span>
                                 <span id="outdoor-play"></span>
                             </div>
+                            <div class="rd-feature">
+                                <i class="icon_check"></i>
+                                <span>Room sizes:</span>
+                                <span id="room-sizes"></span>
+                            </div>
+                            <div class="rd-feature">
+                                <i class="icon_check"></i>
+                                <span>Cat spa</span>
+                            </div>
                         </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
-                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem
-                                imperdiet. Nunc ut sem vitae risus tristique posuere.
-                            </p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -277,23 +287,31 @@
             if (selectedRoomType === "Standard Room") {
                 $("#room-image").html('<img src="img/room/standard-room.jpg" alt="Standard Room">');
                 $("#room-title").text("Standard Room");
-                $("#room-price").text("$250/night");
-                $("#outdoor-play").text("1 Cat, Outdoor play area included");
+                $("#room-price").text("฿250/night");
+                $("#numbers-cat").text("Up to 1 Cat");
+                $("#outdoor-play").text("Outdoor play area included");
+                $("#room-sizes").text("1 x 1.25 x 2.4 m.");
             } else if (selectedRoomType === "Supreme Room") {
                 $("#room-image").html('<img src="img/room/supreme-room.jpg" alt="Supreme Room">');
                 $("#room-title").text("Supreme Room");
-                $("#room-price").text("$400/night");
-                $("#outdoor-play").text("3 Cats, Outdoor play area included");
+                $("#room-price").text("฿400/night");
+                $("#numbers-cat").text("Up to 3 Cat");
+                $("#outdoor-play").text("Outdoor play area included");
+                $("#room-sizes").text("1.5 x 1.5 x 2.6 m.");
             } else if (selectedRoomType === "Deluxe Room") {
                 $("#room-image").html('<img src="img/room/deluxe-room.jpg" alt="Deluxe Room">');
                 $("#room-title").text("Deluxe Room");
-                $("#room-price").text("$550/night");
-                $("#outdoor-play").text("6 Cats, Outdoor play area included");
+                $("#room-price").text("฿550/night");
+                $("#numbers-cat").text("Up to 6 Cat");
+                $("#outdoor-play").text("Outdoor play area included");
+                $("#room-sizes").text("1.9 x 1.25 x 2.6 m.");
             } else if (selectedRoomType === "Sweet Room") {
                 $("#room-image").html('<img src="img/room/sweet-room.jpg" alt="Sweet Room">');
                 $("#room-title").text("Sweet Room");
-                $("#room-price").text("$900/night");
-                $("#outdoor-play").text("10 Cats, No outdoor play area");
+                $("#room-price").text("฿900/night");
+                $("#numbers-cat").text("Up to 10 Cat");
+                $("#outdoor-play").text("Outdoor play area not included");
+                $("#room-sizes").text("1.6 x 2.15 x 2.8 m.");
             } else {
                 // หากไม่พบประเภทห้องที่ตรงกับที่กำหนด ให้เคลียร์ข้อมูล
                 $("#room-title").text("");
