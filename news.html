@@ -3,109 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หน้าเว็บโฆษณา</title>
+    <title>โฆษณาผลิตภัณฑ์</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f5f5f5;
+            text-align: center;
         }
 
-        header {
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
             background-color: #007bff;
             color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        section {
-            position: relative;
-            width: 100%;
-            height: 300px; /* ปรับความสูงตามที่เหมาะสม */
-            overflow: hidden;
-        }
-
-        #imageContainer {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        #advertisement {
-            font-size: 18px;
-            color: #333;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        #backButton,
-        #nextButton {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-            color: #fff;
-            background-color: #0056b3;
-            padding: 10px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
 
-        #backButton {
-            left: 20px;
+        button:hover {
+            background-color: #0056b3;
         }
 
-        #nextButton {
-            right: 20px;
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>ข่าวสารและโฆษณา</h1>
-    </header>
 
-    <section>
-        <button id="backButton" onclick="scrollImages(-1)">กลับ</button>
-        <div id="imageContainer">
-            <img class="image" src="image1.jpg" alt="Image 1">
-            <img class="image" src="image2.jpg" alt="Image 2">
-            <img class="image" src="image3.jpg" alt="Image 3">
-            <!-- เพิ่มรูปภาพตามที่ต้องการ -->
-        </div>
-        <button id="nextButton" onclick="scrollImages(1)">ถัดไป</button>
-    </section>
+<div class="container">
+    <img class="product-image" src="product1.jpg" alt="Product Image" id="productImage">
+    <h2>โฆษณาผลิตภัณฑ์</h2>
+    <p>คำอธิบายสั้นๆ เกี่ยวกับผลิตภัณฑ์ของคุณที่นี่...</p>
+    <button onclick="changeImage()">ดูสินค้าอื่นๆ</button>
 
-    <div id="advertisement">
-        <h2>โฆษณา</h2>
-        <p>สินค้าหรือบริการที่น่าสนใจ</p>
-        <p>รับส่วนลดพิเศษเมื่อสั่งซื้อวันนี้! <br> ใช้โค้ด: SPECIAL10</p>
-        <p>ลองสินค้าฟรี 7 วัน ไม่ต้องชำระค่าใช้จ่าย</p>
-    </div>
+    <p><a href="index.html">กลับสู่หน้าหลัก</a></p>
+</div>
 
-    <script>
-        let currentIndex = 0;
-        const imageContainer = document.getElementById('imageContainer');
+<script>
+    var currentImage = 1;
+    var totalImages = 3; // จำนวนรูปทั้งหมด
 
-        function scrollImages(direction) {
-            const imageWidth = document.querySelector('.image').clientWidth;
-            currentIndex = (currentIndex + direction + imageContainer.children.length) % imageContainer.children.length;
-            imageContainer.style.transition = 'transform 0.5s ease-in-out';
-            imageContainer.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
-        }
-    </script>
+    function changeImage() {
+        currentImage = (currentImage % totalImages) + 1;
+        var imageElement = document.getElementById('productImage');
+        imageElement.src = 'product' + currentImage + '.jpg';
+    }
+</script>
+
 </body>
 </html>
